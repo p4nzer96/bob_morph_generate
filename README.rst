@@ -25,6 +25,7 @@ Then, you can create and activate the required conda environment with the follow
     $ cd bob.paper.icassp2022_morph_generate
     $ conda install -n base -c conda-forge mamba
     $ mamba env create -f environment.yml -n bob.paper.icassp2022_morph_generate
+    $ conda activate bob.paper.icassp2021_morph
 
 This will install all the required software to generate the morphing attacks.
 
@@ -39,6 +40,7 @@ The projection process relies on several pre-existing models:
 
 
 In order to download those models, one must specify the destination path of choice in the ``~/.bobrc`` file, through the following commands::
+
     $ bob config set sg2_morph.dlib_lmd_path /path/to/dlib/landmark/detector.dat
     $ bob config set sg2_morph.sg2_path /path/to/stylegan2/pretrained/model.pkl
     $ bob config set sg2_morph.vgg16_path /path/to/vgg16/pretrained/model.pkl
@@ -53,6 +55,7 @@ Generating Morphs
 
 The script options can be viewed with::
 
+    $ conda activate bob.paper.icassp2021_morph
     $ python gen_morphs.py -h
 
 The morphs of the following types of morphs can be generated at different alphas:
@@ -64,7 +67,6 @@ The morphs of the following types of morphs can be generated at different alphas
 
 Typical usage::
 
-    $ conda activate bob.paper.icassp2021_morph
     $ python gen_morphs.py --opencv --facemorpher --stylegan2 --mipgan2 -s path/to/folder/of/images/ -l path/to/csv/of/pairs.csv -d path/to/destination/folder --latents path/to/latent/vectors --alphas 0.3 0.5 0.7
 
 The ``pairs.csv`` file should simply be a 2 column `.csv` file **without a header** containing only the filenames of the 2 images you want to morph:
@@ -92,7 +94,6 @@ development team by asking your question on `stackoverflow`_  and with the tag *
 
 .. _author: eklavya.sarkar@idiap.ch
 .. _bob: https://www.idiap.ch/software/bob
-.. _installation: https://www.idiap.ch/software/bob/install
 .. _conda: https://conda.io
 .. _stackoverflow: https://stackoverflow.com/questions/tagged/python-bob
 .. _example: http://dlib.net/face_landmark_detection.py.html
