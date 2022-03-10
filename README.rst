@@ -45,7 +45,7 @@ In order to download those models, one must specify the destination path in the 
 
 Finally, all the models can be downloaded by running::
 
-    ``python download_models.py``.
+    $ python download_models.py
 
 Generating Morphs
 ------------------
