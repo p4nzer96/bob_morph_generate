@@ -1,0 +1,102 @@
+====================================================
+ Are GAN-based Morphs Threatening Face Recognition?
+====================================================
+
+This package contains the source code for generating the morphing attacks used in the experiments of the paper "Are GAN-based Morphs Threatening Face Recognition?"::
+
+    @INPROCEEDINGS{Sarkar_ICASSP_2022,
+        author    = {Sarkar, Eklavya and Korshunov, Pavel and Colbois, Laurent and Marcel, S{\'e}bastien},
+        projects  = {Idiap, Biometrics Center},
+        title     = {Are GAN-based Morphs Threatening Face Recognition?},
+        booktitle = {International Conference on Acoustics, Speech, & Signal Processing (ICASSP 2022)},
+        year      = {2022},
+        note      = {Accepted for Publication in ICASSP2022},
+        pdf       = {http://publications.idiap.ch/attachments/papers/2022/Sarkar_ICASSP_2022.pdf}
+    }
+
+Installation
+------------
+This package is part of the signal-processing and machine learning toolbox bob_. 
+Install conda_ before continuing.
+
+Download the source code of this paper and unpack it. 
+Then, you can create and activate the required conda environment with the following commands::
+
+    $ cd bob.paper.icassp2022_morph_generate
+    $ conda install -n base -c conda-forge mamba
+    $ mamba env create -f environment.yml -n bob.paper.icassp2022_morph_generate
+
+This will install all the required software to generate the morphing attacks.
+
+
+Downloading Models
+------------------
+The projection process relies on several pre-existing models:
+
+    * **DLIB Face Landmark detector** for cropping and aligning the projected faces exactly as in FFHQ. (Example_).
+    * StyleGAN2_ as the main face synthesis network. (Original repository_). We are using Config-F, trained on FFHQ at resolution 1024 x 1024.
+    * A pretrained VGG16_ model, used to compute a perceptual loss between projected and target image.
+
+In order to download those models, one must specify the destination path in the ``~/.bobrc`` file, through the following commands::
+
+    $ bob config set sg2_morph.dlib_lmd_path /path/to/dlib/landmark/detector.dat
+    $ bob config set sg2_morph.sg2_path /path/to/stylegan2/pretrained/model.pkl
+    $ bob config set sg2_morph.vgg16_path /path/to/vgg16/pretrained/model.pkl
+
+Finally, all the models can be downloaded by running::
+
+    ``python download_models.py``.
+
+Generating Morphs
+------------------
+**Note**: StyleGAN2 requires custom GPU-only operations, and at least 12 GB of GPU RAM. Therefore, to run all following examples and perform additional experiments, it is necessary to run this code on a GPU.
+
+The morphs of the following varieties can be generated with ``gen_morphs.py``:
+
+    * OpenCV
+    * FaceMorpher
+    * StyleGAN2
+    * MIPGAN-II
+
+Typical usage::
+
+    $ conda activate bob.paper.icassp2021_morph
+    $ python gen_morphs.py --opencv --facemorpher --stylegan2 --mipgan2 -s path/to/folder/of/images/ -l path/to/csv/of/pairs.csv -d path/to/destination/folder --latents path/to/latent/vectors --alphas 0.3 0.5 0.7
+    
+The ``pairs.csv`` file should simply be a 2 column `.csv` file **without a header** containing only the filenames of the 2 images you want to morph:
+
+    * image1.png, image2.png
+    * image1.png, image3.png
+
+
+**Note**: Keep in mind that for the ``--stylegan2`` and ``--mipgan2`` arguments, it is necessary to have the latent vectors of all required images generated **beforehand**.
+
+This can be done with the ``gen_latents.py``. Typical usage::
+
+    $ python gen_latents.py -s path/to/folder/of/images/
+
+License
+-------
+
+This package is released under a custom `license <https://gitlab.idiap.ch/bob/bob.paper.icassp2022_morph_generate/-/blob/master/LICENSE.txt>`_. It uses some components from the `official release of the StyleGAN2 model <https://github.com/NVlabs/stylegan2>`_, which is itself released under the `Nvidia Source Code License-NC <https://gitlab.idiap.ch/bob/bob.paper.ijcb2021_synthetic_dataset/-/blob/master/bob/paper/ijcb2021_synthetic_dataset/stylegan2/LICENSE.txt>`_.
+
+
+Contact
+-------
+
+For questions or reporting issues to this software package, kindly contact our
+development team by asking your question on `stackoverflow`_  and with the tag *python-bob*, or alternatively contact the first author_.
+
+.. _author: eklavya.sarkar@idiap.ch
+
+Before doing that, check our documentation by clicking in the links on the top.
+
+.. Place your references here:
+.. _bob: https://www.idiap.ch/software/bob
+.. _installation: https://www.idiap.ch/software/bob/install
+.. _conda: https://conda.io
+.. _stackoverflow: https://stackoverflow.com/questions/tagged/python-bob
+.. _example: http://dlib.net/face_landmark_detection.py.html
+.. _StyleGAN2: https://arxiv.org/abs/1912.04958
+.. _repository: https://github.com/NVlabs/stylegan2
+.. _VGG16: https://arxiv.org/abs/1801.03924

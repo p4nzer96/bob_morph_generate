@@ -1,0 +1,1 @@
+include README.rst COPYING environment.yml buildout.cfg LICENSE.txt version.txt requirements.txt
