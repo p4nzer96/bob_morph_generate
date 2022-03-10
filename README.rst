@@ -34,8 +34,8 @@ Downloading Models
 ------------------
 The projection process relies on several pre-existing models:
 
-* **DLIB Face Landmark detector** for cropping and aligning the projected faces exactly as in FFHQ. (Example_).
-* StyleGAN2_ as the main face synthesis network. (Original repository_). We are using Config-F, trained on FFHQ at resolution 1024 x 1024.
+* DLIB Face Landmark detector for cropping and aligning the projected faces exactly as in FFHQ. Example_.
+* StyleGAN2_ as the main face synthesis network. We fork the official repository_. The Config-F, trained on FFHQ at resolution 1024 x 1024, is employed.
 * A pretrained VGG16_ model, used to compute a perceptual loss between projected and target image.
 
 
@@ -47,7 +47,7 @@ In order to download those models, one must specify the destination path of choi
 
 Finally, all the models can be downloaded by running::
 
-    $ python download_models.py.
+    $ python download_models.py
 
 Generating Morphs
 ------------------
