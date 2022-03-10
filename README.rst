@@ -25,7 +25,7 @@ Then, you can create and activate the required conda environment with the follow
     $ cd bob.paper.icassp2022_morph_generate
     $ conda install -n base -c conda-forge mamba
     $ mamba env create -f environment.yml -n bob.paper.icassp2022_morph_generate
-    $ conda activate bob.paper.icassp2021_morph
+    $ conda activate bob.paper.icassp2022_morph_generate
 
 This will install all the required software to generate the morphing attacks.
 
@@ -55,7 +55,7 @@ Generating Morphs
 
 The script options can be viewed with::
 
-    $ conda activate bob.paper.icassp2021_morph
+    $ conda activate bob.paper.icassp2022_morph_generate
     $ python gen_morphs.py -h
 
 The morphs of the following types of morphs can be generated at different alphas:
@@ -83,7 +83,7 @@ This can be done with the ``gen_latents.py``. Typical usage::
 License
 -------
 
-This package uses some components from the `official release of the StyleGAN2 model <https://github.com/NVlabs/stylegan2>`_, which is itself released under the `Nvidia Source Code License-NC <https://gitlab.idiap.ch/bob/bob.paper.ijcb2021_synthetic_dataset/-/blob/master/bob/paper/ijcb2021_synthetic_dataset/stylegan2/LICENSE.txt>`_.
+This package uses some components from the `official release of the StyleGAN2 model <https://github.com/NVlabs/stylegan2>`_, which is itself released under the `Nvidia Source Code License-NC <https://gitlab.idiap.ch/bob/bob.paper.icassp2022_morph_generate/-/blob/master/modules/LICENSE.txt>`_.
 
 
 Contact
