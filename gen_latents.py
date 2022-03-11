@@ -14,7 +14,7 @@ import bob.io.base
 import modules
 import utils as sg_utils
 import argparse
-from gridtk.tools import get_array_job_slice
+# from gridtk.tools import get_array_job_slice
 
 def parse_arguments():
     '''Parses in CLI arguments'''
@@ -69,7 +69,7 @@ def main():
 
     # Iterate through a single image - we use SGE_TASK_ID to parallelize
     list_images = sorted(os.listdir(SRC_DIR))
-    list_images = list_images[get_array_job_slice(len(list_images))]
+    # list_images = list_images[get_array_job_slice(len(list_images))]
 
     # Instantiate the three main modules
     cropper, projector = instantiate_sg2_modules()

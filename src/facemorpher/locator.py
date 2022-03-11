@@ -2,6 +2,8 @@
 # To view the source repository of this code, visit:
 # https://github.com/alyssaq/face_morpher/blob/dlib/facemorpher/locator.py
 
+# Adjustements made by Eklavya Sarkar (Idiap Research Institute, Biometrics Security and Privacy), Jan-Feb 2021,
+#             Save used DLIB model previously downloaded -> DLIB_LMD_PATH = rc['sg2_morph.dlib_lmd_path']
 
 """
 Locate face points
@@ -12,12 +14,13 @@ import numpy as np
 import os.path as path
 import dlib
 import os
+from bob.extension import rc
 
 
 dlib_detector = dlib.get_frontal_face_detector()
  # The following line has been modified to remove the DLIB_DATA_DIR
-dlib_predictor = dlib.shape_predictor(
-    '/idiap/home/esarkar/temp/Experiments/FaceMorph/bob/project/morph/gen/morphs/shape_predictor_68_face_landmarks.dat')
+DLIB_LMD_PATH = rc['sg2_morph.dlib_lmd_path']
+dlib_predictor = dlib.shape_predictor(DLIB_LMD_PATH)
 
 def boundary_points(points, width_percent=0.1, height_percent=0.1):
   """ Produce additional boundary points
