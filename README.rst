@@ -83,7 +83,7 @@ This can be done with the ``gen_latents.py``. Typical usage::
 License
 -------
 
-This package uses some components from the `official release of the StyleGAN2 model <https://github.com/NVlabs/stylegan2>`_, which is itself released under the `Nvidia Source Code License-NC <https://gitlab.idiap.ch/bob/bob.paper.icassp2022_morph_generate/-/blob/master/modules/LICENSE.txt>`_.
+This package uses some components from the `official release of the StyleGAN2 model <https://github.com/NVlabs/stylegan2>`_, which is itself released under the `Nvidia Source Code License-NC <https://gitlab.idiap.ch/bob/bob.paper.icassp2022_morph_generate/-/blob/master/modules/LICENSE.txt>`_, as well as from `OpenCV <https://github.com/spmallick/learnopencv>`_ and `Facemorpher <https://github.com/alyssaq/face_morpher>`_ repositories, both of which are released under a "Non-Commercial Research and Educational Use Only" license.
 
 
 Contact
