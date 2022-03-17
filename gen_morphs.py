@@ -71,7 +71,15 @@ def make_dst_path(dst_path, type, alpha_val):
     return full_dst_path
 
 def make_opencv_morphs(PERMUTATIONS, SRC_DIR, dst_path, detector, predictor, fa, alpha):
-    '''Loops over all given permutations to generate the opencv morph images.'''
+    '''
+    Loops over all given permutations to generate the opencv morph images.
+
+    Source:
+    -------
+    Copyright (c) 2016 Satya Mallick <spmallick@learnopencv.com>
+    All rights reserved. No warranty, explicit or implicit, provided.
+    https://learnopencv.com
+    '''
     print('Generating OpenCV morphs with alpha', alpha)
     # Loop
     for f1, f2 in PERMUTATIONS:
@@ -139,7 +147,15 @@ def make_opencv_morphs(PERMUTATIONS, SRC_DIR, dst_path, detector, predictor, fa,
         cv.imwrite(newname, imgMorph)
 
 def make_facemorpher_morphs(PERMUTATIONS, SRC_DIR, WIDTH, HEIGHT, dst_path, alpha):
-    '''Loops over all given permutations to generate the facemorph morph images.'''
+    '''
+    Loops over all given permutations to generate the facemorph morph images.
+
+    Source:
+    -------
+    This code is based on the original one by Alyssa Quek, cloned from the face_morpher repository.
+    To view the source repository of this code, visit:
+    https://github.com/alyssaq/face_morpher
+    '''
     print('Generating FaceMorpher morphs with alpha', alpha)
     # Loop
     for f1, f2 in PERMUTATIONS:
@@ -204,7 +220,17 @@ def make_stylegan2_morphs(PERMUTATIONS, DST_SUFFIX, LATENTS_DIR, arg_dst_path, g
             bob.io.base.save(img, newname)
 
 def make_mipgan2_morphs(PERMUTATIONS, DST_SUFFIX, SRC_DIR, LATENTS_DIR, arg_dst_path, generator, cropper, alpha):
-    '''Loops over all given permutations to generate the mipgan2 morph images.'''
+    '''
+    Loops over all given permutations to generate the mipgan2 morph images.
+
+    Source:
+    -------
+    The implementation is a modified version of the one described in:
+    Zhang, H., Venkatesh, S., Ramachandra, R., Raja, K., Damer, N. and Busch, C., 2021. 
+    Mipgan—generating strong and high quality morphing attacks using identity prior driven gan. 
+    IEEE Transactions on Biometrics, Behavior, and Identity Science, 3(3), pp.365-383.
+    URL: https://arxiv.org/abs/2009.01729
+    '''
     # Get Morpher class, and set network (different init to Projector class)
     morph = morpher.Morpher(alpha=alpha)
     morph.set_network(generator.network)
