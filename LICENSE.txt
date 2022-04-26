@@ -1,6 +1,6 @@
 License - for Non-Commercial Research and Educational Use Only
 
-Copyright (c) 2021, Idiap research institute
+Copyright (c) 2022, Idiap research institute
 
 All rights reserved.
 

@@ -89,8 +89,7 @@ This package uses some components from the `official release of the StyleGAN2 mo
 Contact
 -------
 
-For questions or reporting issues to this software package, kindly contact our
-development team by asking your question on `stackoverflow`_  and with the tag *python-bob*, or alternatively contact the first author_.
+For questions or reporting issues to this software package, kindly contact the first author_.
 
 .. _author: eklavya.sarkar@idiap.ch
 .. _bob: https://www.idiap.ch/software/bob
