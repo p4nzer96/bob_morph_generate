@@ -5,14 +5,17 @@
 This package contains the source code for generating the morphing attacks used in the experiments of the paper "Are GAN-based Morphs Threatening Face Recognition?"::
 
     @INPROCEEDINGS{Sarkar_ICASSP_2022,
-        author    = {Sarkar, Eklavya and Korshunov, Pavel and Colbois, Laurent and Marcel, S{\'e}bastien},
+        author    = {Sarkar, Eklavya and Korshunov, Pavel and Colbois, Laurent and Marcel, Sébastien},
+        booktitle = {ICASSP 2022 - 2022 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+        title     = {Are GAN-based morphs threatening face recognition?},
         projects  = {Idiap, Biometrics Center},
-        title     = {Are GAN-based Morphs Threatening Face Recognition?},
-        booktitle = {International Conference on Acoustics, Speech, & Signal Processing (ICASSP 2022)},
         year      = {2022},
+        pages     = {2959-2963},
+        doi       = {10.1109/ICASSP43922.2022.9746477},
         note      = {Accepted for Publication in ICASSP2022},
         pdf       = {http://publications.idiap.ch/attachments/papers/2022/Sarkar_ICASSP_2022.pdf}
     }
+
 
 Installation
 ------------
