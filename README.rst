@@ -1,8 +1,12 @@
+.. image:: morphs_img.png
+ :width: 800
+ :alt: Morph Faces
+
 ====================================================
  Are GAN-based Morphs Threatening Face Recognition?
 ====================================================
 
-This package contains the source code for generating the morphing attacks used in the experiments of the paper "Are GAN-based Morphs Threatening Face Recognition?"::
+This package contains the source code for generating the different types of morphing attacks used in the experiments of the paper "Are GAN-based Morphs Threatening Face Recognition?"::
 
     @INPROCEEDINGS{Sarkar_ICASSP_2022,
         author    = {Sarkar, Eklavya and Korshunov, Pavel and Colbois, Laurent and Marcel, Sébastien},
@@ -16,6 +20,12 @@ This package contains the source code for generating the morphing attacks used i
         pdf       = {http://publications.idiap.ch/attachments/papers/2022/Sarkar_ICASSP_2022.pdf}
     }
 
+Material
+---------
+
+- Paper_
+- Poster_ 
+- Presentation_ 
 
 Installation
 ------------
@@ -102,3 +112,6 @@ For questions or reporting issues to this software package, kindly contact the f
 .. _StyleGAN2: https://arxiv.org/abs/1912.04958
 .. _repository: https://github.com/NVlabs/stylegan2
 .. _VGG16: https://arxiv.org/abs/1801.03924
+.. _Poster: https://sigport.org/sites/default/files/docs/Sarkar_ICASSP_2022_Morph_Poster.pdf
+.. _Paper: https://ieeexplore.ieee.org/document/9746477
+.. _Presentation: https://youtu.be/anjDrxQKRhc
