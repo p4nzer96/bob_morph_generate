@@ -5,8 +5,9 @@ RUN apt update && apt install -y --no-install-recommends \
     git \
     python3 \
     python3-pip \ 
-    wget  \
-    libxml2-dev
+    wget \
+    libxml2-dev \
+    libxau-dev
 
 # Configuring python symlinks
 RUN if [ ! -e /usr/bin/python ]; then ln -s /usr/bin/python3 /usr/bin/python; fi && \
@@ -30,7 +31,6 @@ ADD . ./bob_mgen
 WORKDIR /bob_mgen
 
 # Running the installation script
-
 RUN chmod +x /bob_mgen/conf_script.sh && \
     . ./conf_script.sh
 
