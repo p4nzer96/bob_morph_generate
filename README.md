@@ -86,14 +86,42 @@ To run the Docker container, use the following command:
     $ docker run -i --runtime=nvidia --gpus all -v <path_to_your_data>:/data -t <image_name>
 ```
 
+> Note: in order to run the container as non-roor user please refere to the post installation steps in the links above.
+
+Once you access the container, you will be in directory `/bob_mgen`, which is the working directory of the repository. Before running the code, you need to activate the conda environment by running the following command:
+
+```bash
+    $ conda activate bob_env
+```
+
+### Troubleshooting
+If you encounter the following error when running the Docker container:
+
+```bash
+    Failed to initialize NVML: Unknown Error
+```
+
+you can try to fix it by running the following command:
+
+```bash
+$ sudo nano /etc/nvidia-container-runtime/config.toml
+```
+and setting the parameter `no-cgroups` to `false` inside the file:
+
+```text
+    no-cgroups = false
+```
+
 ## Generating Morphs
 
 **Note**: StyleGAN2 requires custom GPU-only operations, and at least 12 GB of GPU RAM. Therefore, to run all following examples and perform additional experiments, it is necessary to run this code on a GPU.
 
-The script options can be viewed with::
+The script options can be viewed with
 
-    $ conda activate bob.paper.icassp2022_morph_generate
+```bash
+    $ conda activate <environment_name>
     $ python gen_morphs.py -h
+```
 
 The morphs of the following types of morphs can be generated at different alphas:
 
