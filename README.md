@@ -102,18 +102,24 @@ The morphs of the following types of morphs can be generated at different alphas
 * StyleGAN2
 * MIPGAN-II
 
-Typical usage::
+**Typical usage:**
 
+```bash
     $ python gen_morphs.py --opencv --facemorpher --stylegan2 --mipgan2 -s path/to/folder/of/images/ -l path/to/csv/of/pairs.csv -d path/to/destination/folder --latents path/to/latent/vectors --alphas 0.3 0.5 0.7
+```
 
-The ``pairs.csv`` file should simply be a 2 column `.csv` file **without a header** containing only the filenames of the 2 images you want to morph:
+The ```pairs.csv``` file should simply be a 2 column `.csv` file **without a header** containing only the filenames of the 2 images you want to morph:
 
-* image1.png, image2.png
-* image1.png, image3.png
+```csv
+image1.png, image2.png
+image1.png, image3.png
+```
 
-**Note**: Keep in mind that for the ``--stylegan2`` and ``--mipgan2`` arguments, it is necessary to have the latent vectors of all required images generated **beforehand**.
+**Note**: Keep in mind that for the ```--stylegan2``` and ```--mipgan2``` arguments, it is necessary to have the latent vectors of all required images generated **beforehand**.
 
-This can be done with the ```gen_latents.py```. Typical usage
+This can be done with the ```gen_latents.py```. 
+
+**Typical usage:**
 
 ```bash
     $ python gen_latents.py -s <path/to/folder/of/images/>
