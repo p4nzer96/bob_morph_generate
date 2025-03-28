@@ -4,3 +4,4 @@ __pycache__/
 submitted.sql3
 .nfs*
 _cudacache/
+**/outputs

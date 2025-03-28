@@ -1,13 +1,13 @@
 FROM ubuntu:18.04
 
 # Installing dependencies
-RUN apt update && apt install -y --no-install-recommends \
+RUN apt update && apt install -y \
     git \
     python3 \
     python3-pip \ 
-    wget \
-    libxml2-dev \
-    libxau-dev
+    wget
+    
+RUN apt install libxml2-dev --no-install-recommends -y
 
 # Configuring python symlinks
 RUN if [ ! -e /usr/bin/python ]; then ln -s /usr/bin/python3 /usr/bin/python; fi && \
@@ -32,6 +32,6 @@ WORKDIR /bob_mgen
 
 # Running the installation script
 RUN chmod +x /bob_mgen/conf_script.sh && \
-    . ./conf_script.sh
+    . /bob_mgen/conf_script.sh
 
 ENTRYPOINT ["/bin/bash"]
